@@ -4,13 +4,14 @@
 
     <head>
         <meta charset="utf-8"/>
-
+        <link rel="stylesheet" href="./css/lab3.css"/>
         <title>COSC 360 - Lab 3</title>
 
 
     </head>
 
     <body>
+        <div>
         <table>
             <caption>
                 February 2021
@@ -30,9 +31,9 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td colspan="3" ><a href="#" id="prev"><< January</a></td>
+                    <td colspan="3" id="prev"><a href="#" >	&lt;&lt; January</a></td>
                     <td></td>
-                    <td colspan="3" ><a href="#" id="next">March >></a></td>
+                    <td colspan="3" id="next"><a href="#" >March &gt;&gt;</a></td>
                 </tr>
             </tfoot>
 
@@ -43,7 +44,7 @@
                     <td>2</td>
                     <td>3</td>
                     <td>4</td>
-                    <td>5</td>
+                    <td id="today">5</td>
                     <td>6</td>
                 </tr>
                 <tr>
@@ -76,6 +77,7 @@
                 </tr>
                 <tr>
                     <td><a href="#">28</a></td>
+                    <td colspan="6"></td>
                     
                 </tr>
             </tbody>
@@ -92,7 +94,7 @@
                 </p>
                 
                 <p>
-                    <label for="first">First Meeting</label>
+                    <label for="first">First Meeting? </label>
                     <input type="checkbox" name="first" id="first" />
                 </p>
                 
@@ -114,7 +116,7 @@
 
             </fieldset>
         </form>
-    
+    </div>
     </body>
 
 </html>

@@ -103,4 +103,7 @@ img.large-image {
 footer {
     padding: 1em;
 }
+td{
+    box-shadow: none;
+}
  

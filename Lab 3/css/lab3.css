@@ -1,0 +1,78 @@
+
+
+div{
+    margin: auto;
+    max-width: 70%;
+    
+}
+
+caption {
+    padding: 0.75em;
+    background-color: rgb(148, 170, 153);
+    font-size: 0.7em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+table{
+    margin: 2em;
+    background-color: white;
+    text-align: center;
+    
+}
+
+#today {
+    font: white;
+    text-align: center;
+    background-color: rgb(124, 174, 189);
+}
+th, td {
+    border-bottom: 0.5px solid rgb(211, 211, 211);
+    border-right: 0.5px solid rgb(211, 211, 211);
+    background-color: rgb(237, 237, 237);
+}
+
+th {
+   font-size: 0.5em;
+    padding: 0.5em;
+}
+
+td {
+    padding: 0.5em;
+    margin: auto;
+}
+
+tbody td:hover{
+    background-color: red;
+}
+tr {
+    padding-left: 0.5;
+}
+
+
+
+#prev {
+    text-align: left;
+    font-size: 0.8em;
+}
+#next {
+    text-align: right;
+    font-size: 0.8em;
+}
+
+tbody a:visited{
+    color:rgb(45, 145, 179);
+}
+a:visited {
+ color: black;   
+}
+
+tfoot td {
+    border: none;
+}
+
+form {
+    margin: 2em;
+    background-color: rgb(214, 200, 156);
+    width: 50%;
+    padding: 0.25em;
+}
+

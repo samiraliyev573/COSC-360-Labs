@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <p>A script on this page starts this clock:</p>
+
+  <p id="time_one"></p>
+
+  <p id="time_two"></p>
+
+  <!-- Add button and table here -->
+  <button id="cities" onclick="getCityInfo()">Get City Info</button>
+  <script>
+    //set interval timers to trigger the refresh.  Here the callback function will
+    //be called when the timer fires
+    var var1 = setInterval(timer1, 1000);
+    var var2 = setInterval(timer2, 1000);
+
+    //this is the callback function that will be run when timer1 runs.  Just pulls local time
+    function timer1() {
+      var d = new Date();
+      //Vanilla JS
+      //document.getElementById("time_one").innerHTML = d.toLocaleTimeString();
+      //jQuery
+      $("#time_one").html("From local system: " + d.toLocaleTimeString());
+    }
+
+    //this is the callback function that will be run when timer2 runs.
+    //This will contact the server at the specified url and wait for the data
+    //In this case time.jsontest.com just sends the time back as JSON but you could
+    //use this to pull data from a database or other data source.
+    function timer2() {
+      var results = $.get("http://time.jsontest.com/");
+      results.done(function (data) {
+        //console.log(data);
+        //Vanilla JS
+        //document.getElementById("time_two").innerHTML = data.time;
+        //jQuery
+        $("#time_two").html("Remote server time: " + data.time);
+      });
+      results.fail(function (jqXHR) { console.log("Error: " + jqXHR.status); });
+      results.always(function () { console.log("done"); });
+
+
+    }
+
+
+    function getCityInfo() {
+      var info = $.get("http://www.randyconnolly.com/funwebdev/services/travel/cities.php");
+
+      var table = $("<table> <tr> <th> ID </th> <th> Name </th>  <th> ISO </th>  <th> Latitude </th> <th> Longitude </th> <th> Population </th> <th> Elevation </th>  </tr> </table>");
+
+      info.done(function (data) {
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          console.log(data[i].name);
+          var id = data[i].id != "" ? data[i].id : i;
+          var name = data[i].name;
+          var iso = data[i].iso;
+          var latitude = data[i].latitude;
+          var longitude = data[i].longitude;
+          var population = data[i].population;
+          var elevation = data[i].elevation;
+          var row = $('<tr>' + '<td>' + id + '</td>' + '<td>' + name + '</td>' + '<td>' + iso + '</td>' + '<td>' + latitude + '</td>' + '<td>' + longitude + '</td>' + '<td>' + population + '</td>' + '<td>' + elevation + '</td>' + '</tr>');
+          table.append(row);
+        }
+        $("#cities").after(table);
+      });
+
+      info.fail(function (jqXHR) {
+        console.log("Error: " + jqXHR.status);
+      });
+      info.always(function () {
+        console.log("Information Got Received");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
